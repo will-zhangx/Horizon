@@ -1,0 +1,314 @@
+{
+  "_comment": "Will 的投资信息雷达 - Horizon 配置文件",
+  "_comment2": "将此文件重命名为 config.json 并放入 fork 后的 Horizon 仓库根目录",
+
+  "ai": {
+    "provider": "anthropic",
+    "model": "claude-haiku-4-5-20251001",
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "throttle_sec": 1,
+    "analysis_concurrency": 3,
+    "enrichment_concurrency": 2
+  },
+
+  "sources": {
+
+    "hackernews": {
+      "enabled": true,
+      "fetch_top_stories": 20,
+      "min_score": 150
+    },
+
+    "rss": [
+
+      {
+        "name": "Reuters Business",
+        "url": "https://feeds.reuters.com/reuters/businessNews",
+        "enabled": true,
+        "category": "macro"
+      },
+      {
+        "name": "Reuters Commodities",
+        "url": "https://feeds.reuters.com/reuters/commoditiesNews",
+        "enabled": true,
+        "category": "commodities"
+      },
+      {
+        "name": "Reuters Energy",
+        "url": "https://feeds.reuters.com/reuters/energyNews",
+        "enabled": true,
+        "category": "energy-power"
+      },
+      {
+        "name": "CNBC Economy",
+        "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html",
+        "enabled": true,
+        "category": "macro"
+      },
+      {
+        "name": "CNBC Investing",
+        "url": "https://www.cnbc.com/id/15839135/device/rss/rss.html",
+        "enabled": true,
+        "category": "us-market"
+      },
+      {
+        "name": "MarketWatch Top Stories",
+        "url": "https://feeds.marketwatch.com/marketwatch/topstories/",
+        "enabled": true,
+        "category": "us-market"
+      },
+      {
+        "name": "The Economist Finance",
+        "url": "https://www.economist.com/finance-and-economics/rss.xml",
+        "enabled": true,
+        "category": "macro"
+      },
+      {
+        "name": "Caixin Global",
+        "url": "https://www.caixinglobal.com/rss/rss.xml",
+        "enabled": true,
+        "category": "cn-policy"
+      },
+      {
+        "name": "South China Morning Post Business",
+        "url": "https://www.scmp.com/rss/7/feed",
+        "enabled": true,
+        "category": "cn-policy"
+      },
+      {
+        "name": "Mining.com (铜铝矿业)",
+        "url": "https://www.mining.com/feed/",
+        "enabled": true,
+        "category": "commodities"
+      },
+      {
+        "name": "S&P Global Commodity Insights",
+        "url": "https://www.spglobal.com/commodityinsights/en/rss-feed/all",
+        "enabled": true,
+        "category": "commodities"
+      },
+      {
+        "name": "EE Times (半导体)",
+        "url": "https://www.eetimes.com/feed/",
+        "enabled": true,
+        "category": "semiconductor"
+      },
+      {
+        "name": "Semiconductor Industry Association",
+        "url": "https://www.semiconductors.org/feed/",
+        "enabled": true,
+        "category": "semiconductor"
+      },
+      {
+        "name": "Power Magazine (电力行业)",
+        "url": "https://www.powermag.com/feed/",
+        "enabled": true,
+        "category": "energy-power"
+      },
+      {
+        "name": "Renewable Energy World",
+        "url": "https://www.renewableenergyworld.com/feed/",
+        "enabled": true,
+        "category": "energy-power"
+      },
+      {
+        "name": "USDA Agricultural News",
+        "url": "https://www.usda.gov/rss/home.xml",
+        "enabled": true,
+        "category": "agriculture"
+      },
+      {
+        "name": "AgWeb 农业市场",
+        "url": "https://www.agweb.com/rss/news",
+        "enabled": true,
+        "category": "agriculture"
+      },
+      {
+        "name": "华尔街见闻",
+        "url": "https://wallstreetcn.com/feed",
+        "enabled": true,
+        "category": "cn-policy"
+      },
+      {
+        "name": "36氪财经",
+        "url": "https://36kr.com/feed",
+        "enabled": true,
+        "category": "cn-policy"
+      },
+      {
+        "name": "FT Markets (付费可解锁全文)",
+        "url": "https://www.ft.com/markets?format=rss",
+        "enabled": true,
+        "category": "us-market"
+      }
+    ],
+
+    "reddit": {
+      "enabled": true,
+      "fetch_comments": 3,
+      "subreddits": [
+        {
+          "subreddit": "investing",
+          "sort": "hot",
+          "fetch_limit": 15,
+          "min_score": 200
+        },
+        {
+          "subreddit": "SecurityAnalysis",
+          "sort": "hot",
+          "fetch_limit": 10,
+          "min_score": 50
+        },
+        {
+          "subreddit": "ValueInvesting",
+          "sort": "hot",
+          "fetch_limit": 10,
+          "min_score": 50
+        },
+        {
+          "subreddit": "Commodities",
+          "sort": "hot",
+          "fetch_limit": 10,
+          "min_score": 30
+        },
+        {
+          "subreddit": "energy",
+          "sort": "hot",
+          "fetch_limit": 8,
+          "min_score": 30
+        },
+        {
+          "subreddit": "MacroEconomics",
+          "sort": "hot",
+          "fetch_limit": 10,
+          "min_score": 100
+        },
+        {
+          "subreddit": "stocks",
+          "sort": "hot",
+          "fetch_limit": 10,
+          "min_score": 300
+        },
+        {
+          "subreddit": "ChineseStocks",
+          "sort": "hot",
+          "fetch_limit": 8,
+          "min_score": 20
+        }
+      ]
+    },
+
+    "openbb": {
+      "enabled": true,
+      "watchlists": [
+        {
+          "name": "铜相关美股",
+          "enabled": true,
+          "provider": "yfinance",
+          "fetch_limit": 5,
+          "category": "commodities",
+          "symbols": ["FCX", "SCCO", "TECK", "HBM", "COPX"]
+        },
+        {
+          "name": "存储半导体",
+          "enabled": true,
+          "provider": "yfinance",
+          "fetch_limit": 5,
+          "category": "semiconductor",
+          "symbols": ["MU", "NVDA", "AMD", "INTC", "AMAT"]
+        },
+        {
+          "name": "美国电力/新能源",
+          "enabled": true,
+          "provider": "yfinance",
+          "fetch_limit": 5,
+          "category": "energy-power",
+          "symbols": ["NEE", "DUK", "XEL", "FSLR", "ENPH"]
+        },
+        {
+          "name": "农业大宗",
+          "enabled": true,
+          "provider": "yfinance",
+          "fetch_limit": 5,
+          "category": "agriculture",
+          "symbols": ["ADM", "BG", "MOS", "NTR", "CF"]
+        },
+        {
+          "name": "宏观ETF参考",
+          "enabled": true,
+          "provider": "yfinance",
+          "fetch_limit": 3,
+          "category": "macro",
+          "symbols": ["SPY", "GLD", "TLT", "DXY", "USO"]
+        }
+      ]
+    },
+
+    "github": [],
+    "telegram": { "enabled": false, "channels": [] },
+    "twitter": { "enabled": false }
+  },
+
+  "filtering": {
+    "ai_score_threshold": 7.0,
+    "time_window_hours": 24,
+    "max_items": 25,
+    "category_groups": {
+      "macro": {
+        "name": "宏观经济",
+        "limit": 5,
+        "categories": ["macro"]
+      },
+      "cn-policy": {
+        "name": "中国市场",
+        "limit": 5,
+        "categories": ["cn-policy"]
+      },
+      "us-market": {
+        "name": "美股市场",
+        "limit": 4,
+        "categories": ["us-market"]
+      },
+      "commodities": {
+        "name": "大宗商品·铜铝",
+        "limit": 4,
+        "categories": ["commodities"]
+      },
+      "energy-power": {
+        "name": "电力·新能源",
+        "limit": 4,
+        "categories": ["energy-power"]
+      },
+      "semiconductor": {
+        "name": "半导体·存储周期",
+        "limit": 3,
+        "categories": ["semiconductor"]
+      },
+      "agriculture": {
+        "name": "农业·猪周期",
+        "limit": 3,
+        "categories": ["agriculture"]
+      }
+    },
+    "default_group": "其他",
+    "default_group_limit": 2
+  },
+
+  "email": {
+    "enabled": false
+  },
+
+  "webhook": {
+    "enabled": true,
+    "url_env": "WECHAT_WEBHOOK_URL",
+    "delivery": "summary_and_items",
+    "overview_position": "first",
+    "platform": "generic",
+    "layout": "markdown",
+    "languages": ["zh"],
+    "request_body": {
+      "title": "📡 Will 投资雷达 #{date}",
+      "desp": "#{summary}\n\n---\n#{items}"
+    }
+  }
+}
