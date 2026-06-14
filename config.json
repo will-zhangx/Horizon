@@ -1,8 +1,8 @@
 {
   "ai": {
-    "provider": "anthropic",
-    "model": "claude-haiku-4-5-20251001",
-    "api_key_env": "ANTHROPIC_API_KEY",
+    "provider": "google",
+    "model": "gemini-1.5-flash",
+    "api_key_env": "GOOGLE_API_KEY",
     "throttle_sec": 1,
     "analysis_concurrency": 3,
     "enrichment_concurrency": 2
