@@ -1,7 +1,4 @@
 {
-  "_comment": "Will 的投资信息雷达 - Horizon 配置文件",
-  "_comment2": "将此文件重命名为 config.json 并放入 fork 后的 Horizon 仓库根目录",
-
   "ai": {
     "provider": "anthropic",
     "model": "claude-haiku-4-5-20251001",
