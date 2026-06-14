@@ -1,4 +1,4 @@
-# 放入 fork 后的 Horizon 仓库：.github/workflows/horizon.yml
+# 放入 fork 后的 Horizon 仓库：.github/workflows/main.yml
 # 每天推送两次：早上 7:00 + 下午 5:00（北京时间）
 
 name: Will 投资雷达
@@ -19,21 +19,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install uv
-        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+        uses: astral-sh/setup-uv@v3
 
       - name: Install Horizon
-        run: uv sync --extra openbb
+        run: uv sync
+
+      - name: Copy config
+        run: cp config.json data/config.json
 
       - name: Run Horizon
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
-          # REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
-          # REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-          # OPENBB_PAT: ${{ secrets.OPENBB_PAT }}
         run: uv run horizon --hours 12
 
       - name: Upload report artifact
