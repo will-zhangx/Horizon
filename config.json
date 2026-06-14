@@ -1,6 +1,6 @@
 {
   "ai": {
-    "provider": "google",
+    "provider": "gemini",
     "model": "gemini-1.5-flash",
     "api_key_env": "GOOGLE_API_KEY",
     "throttle_sec": 1,
