@@ -292,7 +292,10 @@
   },
 
   "email": {
-    "enabled": false
+    "enabled": false,
+    "imap_server": "",
+    "smtp_server": "",
+    "email_address": ""
   },
 
   "webhook": {
