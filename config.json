@@ -3,9 +3,9 @@
     "provider": "gemini",
     "model": "gemini-1.5-flash",
     "api_key_env": "GOOGLE_API_KEY",
-    "throttle_sec": 1,
-    "analysis_concurrency": 3,
-    "enrichment_concurrency": 2
+    "throttle_sec": 2,
+    "analysis_concurrency": 1,
+    "enrichment_concurrency": 1
   },
 
   "sources": {
@@ -247,7 +247,7 @@
   },
 
   "filtering": {
-    "ai_score_threshold": 6.0,
+    "ai_score_threshold": 7.0,
     "time_window_hours": 24,
     "max_items": 25,
     "category_groups": {
@@ -305,7 +305,7 @@
     "overview_position": "first",
     "platform": "generic",
     "layout": "markdown",
-    "languages": ["zh"],
+    "languages": ["en"],
     "request_body": {
       "title": "📡 Will 投资雷达 #{date}",
       "desp": "#{summary}\n\n---\n#{items}"
