@@ -5,7 +5,8 @@
     "api_key_env": "GOOGLE_API_KEY",
     "throttle_sec": 2,
     "analysis_concurrency": 1,
-    "enrichment_concurrency": 1
+    "enrichment_concurrency": 1,
+    "scoring_prompt": "你是一个专注于A股/美股价值投资的分析师助手。请对以下新闻的投资参考价值评分（0-10分）。\n高分（7-10）：影响中国电力/水电/建筑央企的政策；铜铝大宗商品价格驱动因素；半导体存储周期拐点信号；生猪/大豆供需变化；美联储政策与美股估值；宏观经济数据（GDP/CPI/就业）；行业并购重组。\n低分（0-3）：技术圈人物介绍/职业变动（如工程师博客、开源项目作者动态）；编程语言/开发工具讨论；游戏/消费电子产品评测；初创公司融资（非上市公司）；娱乐/文化/体育新闻；无数据支撑的观点文章。\n请直接输出数字分数，不需要解释。"
   },
 
   "sources": {
@@ -13,7 +14,7 @@
     "hackernews": {
       "enabled": true,
       "fetch_top_stories": 20,
-      "min_score": 150
+      "min_score": 300
     },
 
     "rss": [
@@ -301,7 +302,7 @@
   "webhook": {
     "enabled": true,
     "url_env": "WECHAT_WEBHOOK_URL",
-    "delivery": "summary_and_items",
+    "delivery": "single",
     "overview_position": "first",
     "platform": "generic",
     "layout": "markdown",
