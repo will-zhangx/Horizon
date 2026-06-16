@@ -5,7 +5,7 @@ name: Will 投资雷达
 
 on:
   schedule:
-    - cron: '0 23 * * *'   # 北京时间 07:00 = UTC 23:00（前一天）
+    - cron: '0 22 * * *'   # 北京时间 06:00 = UTC 22:00（前一天）
     - cron: '0 9 * * *'    # 北京时间 17:00 = UTC 09:00
   workflow_dispatch:        # 允许手动触发
 
