@@ -302,7 +302,7 @@
   "webhook": {
     "enabled": true,
     "url_env": "WECHAT_WEBHOOK_URL",
-    "delivery": "single",
+    "delivery": "summary_and_items",
     "overview_position": "first",
     "platform": "generic",
     "layout": "markdown",
